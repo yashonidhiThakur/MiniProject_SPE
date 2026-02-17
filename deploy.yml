@@ -1,0 +1,32 @@
+---
+- name: Deploy Scientific Calculator
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  
+  vars:
+    container_name: calculator-app
+    image_name: yashonidhithakur/scientific-calculator:latest
+
+  tasks:
+    - name: Stop and remove any existing container
+      docker_container:
+        name: "{{ container_name }}"
+        state: absent
+
+    - name: Pull the latest Docker image
+      docker_image:
+        name: "{{ image_name }}"
+        source: pull
+
+    - name: Run the new container
+      docker_container:
+        name: "{{ container_name }}"
+        image: "{{ image_name }}"
+        state: started
+        restart_policy: always
+        # Map port if needed (not needed for console app, but good practice)
+        # ports:
+        #   - "8080:8080" 
+        interactive: yes
+        tty: yes
