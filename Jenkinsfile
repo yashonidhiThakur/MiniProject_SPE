@@ -6,6 +6,7 @@ pipeline {
         IMAGE_NAME = "yashonidhithakur/scientific-calculator"
         DOCKER_CRED_ID = 'DockerHubCred'
         ANSIBLE_CRED_ID = 'localhost'
+        PATH = "/usr/local/bin/docker"
     }
 
     stages {
