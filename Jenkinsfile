@@ -37,11 +37,7 @@ pipeline {
         stage('Deploy (Ansible)') {
             steps {
                 echo 'Deploying the container via Ansible'
-                ansiblePlaybook(
-                    playbook: 'deploy.yml',
-                    inventory: 'localhost',
-                    colorized: true
-                )
+                sh '/opt/homebrew/bin/ansible-playbook deploy.yml -i localhost,'
             }
         }
        }
