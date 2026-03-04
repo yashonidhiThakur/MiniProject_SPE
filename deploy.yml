@@ -9,24 +9,16 @@
     image_name: yashonidhithakur/scientific-calculator:latest
 
   tasks:
-    - name: Stop and remove any existing container
-      docker_container:
-        name: "{{ container_name }}"
-        state: absent
+    - name: Stopping existing container if there is
+      shell: /usr/local/bin/docker stop {{ container_name }}
+      ignore_errors: yes
 
-    - name: Pull the latest Docker image
-      docker_image:
-        name: "{{ image_name }}"
-        source: pull
+    - name: Removing existing container if there is
+      shell: /usr/local/bin/docker rm {{ container_name }}
+      ignore_errors: yes
 
-    - name: Run the new container
-      docker_container:
-        name: "{{ container_name }}"
-        image: "{{ image_name }}"
-        state: started
-        restart_policy: always
-        # Map port if needed (not needed for console app, but good practice)
-        # ports:
-        #   - "8080:8080" 
-        interactive: yes
-        tty: yes
+    - name: Pulling the latest Docker image
+      shell: /usr/local/bin/docker pull {{ image_name }}
+
+    - name: Running the new container in dit mode
+      shell: /usr/local/bin/docker run -dit --name {{ container_name }} {{ image_name }}
