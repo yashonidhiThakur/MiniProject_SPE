@@ -40,7 +40,7 @@ pipeline {
                 ansiblePlaybook(
                     playbook: 'deploy.yml',
                     inventory: 'localhost',
-                    credentialsId: ANSIBLE_CRED_ID
+                    colorized: true
                 )
             }
         }
