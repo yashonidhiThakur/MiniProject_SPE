@@ -20,7 +20,7 @@ pipeline {
             steps {
                 echo 'Building Docker Image'
                 // using Dockerfile to compile Java and build the image
-                sh 'docker build -t $IMAGE_NAME:latest .' 
+                sh '/usr/local/bin/docker build -t $IMAGE_NAME:latest .' 
             }
         }
 
@@ -29,7 +29,7 @@ pipeline {
                 echo 'Pushing to Docker Hub'
                 withCredentials([usernamePassword(credentialsId: DOCKER_CRED_ID, passwordVariable: 'PASS', usernameVariable: 'USER')]) {
                     sh "echo $PASS | docker login -u $USER --password-stdin"
-                    sh "docker push $IMAGE_NAME:latest"
+                    sh "/usr/local/bin/docker push $IMAGE_NAME:latest"
                 }
             }
         }
@@ -48,7 +48,7 @@ pipeline {
 
        post{
             always{
-                sh 'docker logout'
+                sh '/usr/local/bin/docker logout'
             }
        }
     
