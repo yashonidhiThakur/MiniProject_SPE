@@ -16,6 +16,13 @@ pipeline {
             }
         }
 
+        stage('Build Unit Test') {
+            steps {
+                echo 'Running Unit Tests and Building Exe'
+                sh '/opt/homebrew/bin/mvn clean package' 
+            }
+        }
+
         stage('Building Docker Image') {
             steps {
                 echo 'Building Docker Image'
