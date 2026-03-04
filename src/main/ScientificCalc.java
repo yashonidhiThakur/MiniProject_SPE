@@ -69,9 +69,9 @@ public class ScientificCalc {
             try {
                 choice = scanner.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Invalid input! Please enter a number from the menu.");
-                scanner.next(); // clear the bad input
-                continue; // go back to the top of the menu
+                System.out.println("Invalid input");
+                scanner.next();
+                continue;
             }
 
             if (choice == 9) {
@@ -140,7 +140,7 @@ public class ScientificCalc {
                         System.out.println("Invalid choice. Please select a number from 1 to 9.");
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Invalid input! Please enter valid numbers for the calculation.");
+                System.out.println("Invalid input");
                 scanner.next(); // clear the bad input
             }
         }
