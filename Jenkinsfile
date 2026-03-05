@@ -55,13 +55,13 @@ pipeline {
             }
             success { 
                 mail to: ‘thakur.yashonidhi1525@gmail.com', 
-                subject: "SUCCESS: Scientific Calculator Build #${BUILD_NUMBER}", 
-                body: "The pipeline was successful and it has deployed the calculator container.\n\nView the logs here: ${BUILD_URL}" 
+                     subject: "SUCCESS: Scientific Calculator Build #${BUILD_NUMBER}", 
+                     body: "The pipeline was successful and it has deployed the calculator container.\n\nView the logs here: ${BUILD_URL}" 
             } 
             failure { 
                 mail to: 'thakur.yashonidhi1525@gmail.com', 
-                subject: "FAILED: Scientific Calculator Build #${BUILD_NUMBER}",
-                body: "The CI/CD pipeline failed. Check the logs here to fix the issue: ${BUILD_URL}" 
+                     subject: "FAILED: Scientific Calculator Build #${BUILD_NUMBER}",
+                     body: "The CI/CD pipeline failed. Check the logs here to fix the issue: ${BUILD_URL}" 
             }
        }
     
