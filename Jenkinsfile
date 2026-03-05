@@ -54,7 +54,7 @@ pipeline {
                 sh '/usr/local/bin/docker logout'
             }
             success { 
-                mail to: ‘thakur.yashonidhi1525@gmail.com', 
+                mail to: 'thakur.yashonidhi1525@gmail.com', 
                      subject: "SUCCESS: Scientific Calculator Build #${BUILD_NUMBER}", 
                      body: "The pipeline was successful and it has deployed the calculator container.\n\nView the logs here: ${BUILD_URL}" 
             } 
