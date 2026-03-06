@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    
+    tools{
+       maven 'Maven3'
+    }
 
     environment {
     
@@ -19,7 +23,7 @@ pipeline {
         stage('Build Unit Test') {
             steps {
                 echo 'Running Unit Tests and Building Exe'
-                sh '/opt/homebrew/bin/mvn clean package' 
+                sh 'mvn clean package' 
             }
         }
 
