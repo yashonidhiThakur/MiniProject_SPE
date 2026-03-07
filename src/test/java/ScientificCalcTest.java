@@ -1,10 +1,7 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-/*
- * ScientificCalcTest.java
- * JUnit test cases for the Scientific Calculator project.
- */
+//JUnit test cases
 public class ScientificCalcTest {
     
     ScientificCalc calc = new ScientificCalc();
@@ -45,7 +42,6 @@ public class ScientificCalcTest {
         // normal case
         assertEquals(120, calc.factorial(5));
         
-        // edge case
         assertEquals(1, calc.factorial(0));
         
     }
