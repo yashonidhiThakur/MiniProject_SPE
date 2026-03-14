@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.lang.Math;
 import java.util.InputMismatchException;
-
+//Java program
 public class ScientificCalc {
 
     public double add(double a, double b) {
